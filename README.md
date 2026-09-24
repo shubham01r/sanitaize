@@ -11,9 +11,9 @@ SanitAIze is a Manifest V3 Chrome Extension engineered to tackle the Enterprise 
 - Zero-Latency Stream Re-hydration: Local parsing of Server-Sent Events (SSE) deltas restores original secrets on the fly without proxy round-trip delays.
 - Zero Data at Rest: All credential-to-mock mappings reside strictly in ephemeral tab memory and are permanently wiped when the browser tab closes.
 - Isolated Ghost UI: On-page detection badges and popovers are injected into an isolated, closed Shadow DOM to avoid interfering with target web apps.
-
----
 <img width="1422" height="770" alt="Screenshot 2026-09-24 194429" src="https://github.com/user-attachments/assets/3acbe665-760a-4925-90c8-ee8a1bde3946" />
+---
+
 ## Tech Stack
 - Platform: Chrome Extension Manifest V3
 - Core Engine: Pure JavaScript (ES2022) with zero external runtime dependencies
