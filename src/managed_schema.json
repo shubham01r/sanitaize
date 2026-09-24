@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "enabled": { "type": "boolean", "title": "Force SanitAIze on" },
+    "failMode": { "type": "string", "enum": ["closed", "open"] },
+    "sensitivity": { "type": "string", "enum": ["relaxed", "balanced", "strict"] },
+    "sites": {
+      "type": "object",
+      "properties": {
+        "chatgpt": { "type": "boolean" },
+        "claude": { "type": "boolean" }
+      }
+    },
+    "allowPause": { "type": "boolean", "title": "Let users pause protection" },
+    "lockSettings": { "type": "boolean", "title": "Prevent users from changing managed settings" },
+    "dictionary": { "type": "array", "items": { "type": "object" } }
+  }
+}

@@ -1,0 +1,16 @@
+# SanitAIze Agent Rules
+1. Read docs/01..06 before coding. If code and docs disagree, docs win.
+2. Work one task ID at a time from docs/06_Implementation_Plan.md. Write tests first for anything in src/core.
+3. ZERO runtime dependencies. Dev dependencies only: esbuild, vitest, playwright, eslint, prettier, typescript.
+4. src/core must be pure JS (no chrome.*, no DOM, no window) so it runs in both worlds and in Node tests.
+5. NEVER send real (unsanitised) values through window.postMessage, chrome.runtime messages, logs, console, or storage.
+6. NEVER use chrome.storage.sync. NEVER add fetch/XHR/WebSocket/sendBeacon calls of our own. NEVER use eval/new Function/innerHTML with dynamic data.
+7. Capture built-ins (fetch, Map, JSON, Response, TextEncoder…) at document_start before page scripts can tamper.
+8. Regexes must be linear-time (no nested quantifiers); every regex gets a ReDoS test.
+9. Fixtures must not contain contiguous real-looking secrets; build them with test/helpers/fake-secrets.js.
+10. Fail closed on outbound errors; fail open on inbound (response) errors.
+```[cite: 2]
+
+2. **`docs/` folder check:** Left sidebar me explorer icon (sabse upar wala file icon) click karke dekh lijiye ki `docs/` folder ke andar saari 6 markdown files maujood hain ya nahi[cite: 2].
+
+Jaise hi `.clinerules` save ho jaye, batayein—phir left side me jo **Cline** ka chat input box hai ("Type your task here...")[cite: 9], usme Kickoff prompt daalenge[cite: 2].

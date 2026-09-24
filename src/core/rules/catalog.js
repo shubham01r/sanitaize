@@ -1,0 +1,175 @@
+/** @typedef {import('../types.js').DetectionType} DetectionType */
+
+/** @type {ReadonlyArray<{id:string,type:DetectionType,priority:number,generator:string,enabledKey:string,regex:RegExp,valueGroup?:number,validate?:string,minSensitivity?:string}>} */
+export const RULES = [
+  {
+    id: 'pem-private-key',
+    type: 'PEM_PRIVATE_KEY',
+    priority: 100,
+    generator: 'pem',
+    enabledKey: 'privateKeys',
+    regex:
+      /-----BEGIN (?:[A-Z0-9]{1,32} ){0,8}PRIVATE KEY(?: BLOCK)?-----[\s\S]{16,8192}?-----END (?:[A-Z0-9]{1,32} ){0,8}PRIVATE KEY(?: BLOCK)?-----/g,
+  },
+  {
+    id: 'pem-private-key-partial',
+    type: 'PEM_PRIVATE_KEY',
+    priority: 98,
+    generator: 'pem',
+    enabledKey: 'privateKeys',
+    regex: /-----BEGIN (?:[A-Z0-9]{1,32} ){0,8}PRIVATE KEY-----[A-Za-z0-9+/=\s]{16,8192}/g,
+  },
+  {
+    id: 'db-url',
+    type: 'DB_URL',
+    priority: 95,
+    generator: 'dburl',
+    enabledKey: 'dbUrls',
+    validate: 'dbUrl',
+    regex:
+      /\b(?:postgres(?:ql)?|mysql|mariadb|mongodb(?:\+srv)?|redis|rediss|amqps?|mssql|sqlserver|clickhouse|cassandra):\/\/[^\s'"`<>)\]}]{3,2048}/g,
+  },
+  {
+    id: 'anthropic-key',
+    type: 'ANTHROPIC_KEY',
+    priority: 92,
+    generator: 'anthropic',
+    enabledKey: 'apiKeys',
+    regex: /\bsk-ant-[A-Za-z0-9_-]{20,200}(?![A-Za-z0-9_-])/g,
+  },
+  {
+    id: 'openai-key',
+    type: 'OPENAI_KEY',
+    priority: 90,
+    generator: 'openai',
+    enabledKey: 'apiKeys',
+    validate: 'openaiShape',
+    regex: /\bsk-(?!ant-)(?:proj-|svcacct-|admin-)?[A-Za-z0-9_-]{20,200}(?![A-Za-z0-9_-])/g,
+  },
+  {
+    id: 'stripe-secret',
+    type: 'STRIPE_KEY',
+    priority: 90,
+    generator: 'stripe',
+    enabledKey: 'apiKeys',
+    regex: /\b(?:sk|rk)_(?:live|test)_[A-Za-z0-9]{16,128}\b/g,
+  },
+  {
+    id: 'stripe-publishable',
+    type: 'STRIPE_KEY',
+    priority: 60,
+    generator: 'stripe',
+    enabledKey: 'apiKeys',
+    minSensitivity: 'strict',
+    regex: /\bpk_(?:live|test)_[A-Za-z0-9]{16,128}\b/g,
+  },
+  {
+    id: 'stripe-webhook',
+    type: 'STRIPE_WEBHOOK',
+    priority: 90,
+    generator: 'stripe',
+    enabledKey: 'apiKeys',
+    regex: /\bwhsec_[A-Za-z0-9]{16,128}\b/g,
+  },
+  {
+    id: 'aws-access-key-id',
+    type: 'AWS_ACCESS_KEY_ID',
+    priority: 90,
+    generator: 'aws-akid',
+    enabledKey: 'apiKeys',
+    regex: /\b(?:AKIA|ASIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA)[A-Z0-9]{16}\b/g,
+  },
+  {
+    id: 'aws-secret-key',
+    type: 'AWS_SECRET_KEY',
+    priority: 91,
+    generator: 'aws-secret',
+    enabledKey: 'apiKeys',
+    valueGroup: 1,
+    regex:
+      /(?<![A-Za-z0-9])(?:aws[_-]?)?secret[_-]?(?:access[_-]?)?key["']?\s{0,3}[:=]\s{0,3}["']?([A-Za-z0-9/+=]{40})(?![A-Za-z0-9/+=])/dgi,
+  },
+  {
+    id: 'github-token',
+    type: 'GITHUB_TOKEN',
+    priority: 90,
+    generator: 'github',
+    enabledKey: 'apiKeys',
+    regex: /\bgh[pousr]_[A-Za-z0-9]{36,255}\b/g,
+  },
+  {
+    id: 'github-fine-grained',
+    type: 'GITHUB_TOKEN',
+    priority: 90,
+    generator: 'github',
+    enabledKey: 'apiKeys',
+    regex: /\bgithub_pat_[A-Za-z0-9_]{22,255}\b/g,
+  },
+  {
+    id: 'google-api-key',
+    type: 'GOOGLE_API_KEY',
+    priority: 90,
+    generator: 'google',
+    enabledKey: 'apiKeys',
+    regex: /\bAIza[0-9A-Za-z_-]{35}(?![0-9A-Za-z_-])/g,
+  },
+  {
+    id: 'slack-token',
+    type: 'SLACK_TOKEN',
+    priority: 90,
+    generator: 'slack',
+    enabledKey: 'apiKeys',
+    regex: /\bxox[abprs]-[A-Za-z0-9-]{10,72}(?![A-Za-z0-9-])/g,
+  },
+  {
+    id: 'jwt',
+    type: 'JWT',
+    priority: 85,
+    generator: 'jwt',
+    enabledKey: 'apiKeys',
+    regex:
+      /\beyJ[A-Za-z0-9_-]{8,2048}\.eyJ[A-Za-z0-9_-]{8,4096}\.[A-Za-z0-9_-]{8,2048}(?![A-Za-z0-9_-])/g,
+  },
+  {
+    id: 'generic-secret-assignment',
+    type: 'GENERIC_SECRET',
+    priority: 50,
+    generator: 'shape',
+    enabledKey: 'genericSecrets',
+    validate: 'genericSecret',
+    valueGroup: 3,
+    regex:
+      /(?<![A-Za-z0-9])([A-Za-z0-9_.-]{0,40}(?:secret|passw(?:or)?d|pwd|token|api[_-]?key|apikey|auth[_-]?key|access[_-]?key|private[_-]?key|credential)s?[A-Za-z0-9_.-]{0,20})["']?\s{0,3}(?::=|=>|[:=])\s{0,3}(["'`]?)([^\s"'`,;)}\]]{8,200})\2/dgi,
+  },
+  {
+    id: 'email',
+    type: 'EMAIL',
+    priority: 40,
+    generator: 'email',
+    enabledKey: 'emails',
+    validate: 'email',
+    regex:
+      /(?<![A-Za-z0-9._%+-])[A-Za-z0-9._%+-]{1,64}@[A-Za-z0-9-]{1,63}(?:\.[A-Za-z0-9-]{1,63}){1,8}(?![A-Za-z0-9-])/g,
+  },
+  {
+    id: 'internal-host',
+    type: 'INTERNAL_HOST',
+    priority: 35,
+    generator: 'host',
+    enabledKey: 'hostNames',
+    regex:
+      /\b[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?){0,6}\.(?:internal|corp|intranet|lan|local|private)\b/gi,
+  },
+  {
+    id: 'ipv4',
+    type: 'IPV4',
+    priority: 20,
+    generator: 'ipv4',
+    enabledKey: 'ipAddresses',
+    validate: 'ipv4',
+    regex:
+      /(?<![\w.-])(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.){3}(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)(?!\d|\.\d)/g,
+  },
+];
+
+export const RULE_BY_ID = new Map(RULES.map((rule) => [rule.id, rule]));

@@ -1,0 +1,24 @@
+{
+  "conversation_id": "CONVERSATION_ID_REDACTED",
+  "model": "gpt-4o",
+  "stream": true,
+  "parent_message_id": "PARENT_MESSAGE_ID_REDACTED",
+  "messages": [
+    {
+      "id": "MESSAGE_ID_USER_LONG",
+      "author": { "role": "user" },
+      "create_time": 1710000000,
+      "update_time": null,
+      "content": {
+        "content_type": "text",
+        "parts": [
+          "Review this synthetic integration scenario.\nClient: Example Client Synthetic\nStripe key: sk_test_fakefixture7x9q2m4k6p8r\nAWS access key id: AKIAFAKE2EXAMPLE7Q9Z\nAWS secret key: FAKEsecretExample7Q9Z4pL2mN8rT4vX6cD8wY0\nDatabase: postgres://fake_user:fake_password_7Q9@db.example.invalid:5432/fake_database\nKeep the values format-valid while debugging."
+        ]
+      },
+      "status": "completed",
+      "end_turn": null,
+      "weight": 1,
+      "metadata": {}
+    }
+  ]
+}

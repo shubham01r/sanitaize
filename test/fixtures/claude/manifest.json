@@ -1,0 +1,6 @@
+{
+  "adapterId": "claude",
+  "requestSlots": ["prompt", "attachments[0].extracted_content"],
+  "terminal": "message_stop",
+  "streamMode": "completion-delta"
+}

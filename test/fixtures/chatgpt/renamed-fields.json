@@ -1,0 +1,12 @@
+{
+  "conversation": {
+    "id": "CONVERSATION_ID_REDACTED",
+    "items": [
+      {
+        "id": "MESSAGE_ID_USER_RENAMED",
+        "text": "The renamed field still contains sk_test_fakefixture7x9q2m4k6p8r and postgres://fake_user:fake_password_7Q9@db.example.invalid:5432/fake_database."
+      }
+    ]
+  },
+  "stream": true
+}

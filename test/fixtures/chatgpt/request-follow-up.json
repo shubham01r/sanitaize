@@ -1,0 +1,50 @@
+{
+  "conversation_id": "CONVERSATION_ID_REDACTED",
+  "model": "gpt-4o",
+  "stream": true,
+  "parent_message_id": "MESSAGE_ID_ASSISTANT_PREVIOUS",
+  "messages": [
+    {
+      "id": "MESSAGE_ID_USER_PREVIOUS",
+      "author": { "role": "user" },
+      "create_time": 1710000000,
+      "update_time": null,
+      "content": {
+        "content_type": "text",
+        "parts": ["The first prompt used sk_test_fakefixture7x9q2m4k6p8r."]
+      },
+      "status": "completed",
+      "end_turn": null,
+      "weight": 1,
+      "metadata": {}
+    },
+    {
+      "id": "MESSAGE_ID_ASSISTANT_PREVIOUS",
+      "author": { "role": "assistant" },
+      "create_time": 1710000001,
+      "update_time": null,
+      "content": {
+        "content_type": "text",
+        "parts": ["The first answer used sk_test_mockfixture7x9q2m4k6p8r and Entity_Z_fake7q9."]
+      },
+      "status": "completed",
+      "end_turn": null,
+      "weight": 1,
+      "metadata": {}
+    },
+    {
+      "id": "MESSAGE_ID_USER_FOLLOW_UP",
+      "author": { "role": "user" },
+      "create_time": 1710000000,
+      "update_time": null,
+      "content": {
+        "content_type": "text",
+        "parts": ["Follow up: keep sk_test_fakefixture7x9q2m4k6p8r mapped consistently."]
+      },
+      "status": "completed",
+      "end_turn": null,
+      "weight": 1,
+      "metadata": {}
+    }
+  ]
+}

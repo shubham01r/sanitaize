@@ -1,0 +1,12 @@
+{
+  "conversation_id": "CONVERSATION_ID_REDACTED",
+  "prompt": "Debug this synthetic integration with sk_test_fakefixture7x9q2m4k6p8r and postgres://fake_user:fake_password_7Q9@db.example.invalid:5432/fake_database",
+  "attachments": [
+    {
+      "id": "ATTACHMENT_ID_REDACTED",
+      "extracted_content": "Attachment contains sk_test_fakefixture7x9q2m4k6p8r for local testing."
+    }
+  ],
+  "files": [],
+  "parent_message_uuid": "MESSAGE_ID_REDACTED"
+}

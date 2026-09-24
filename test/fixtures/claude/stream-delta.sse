@@ -1,0 +1,11 @@
+data: {"completion":"The synthetic key is "}
+
+data: {"completion":"sk_te"}
+
+data: {"completion":"st_mockfixture7x9q2m4k6p8r"}
+
+data: {"completion":" and the database is postgres://user_fake7q:MockPass7Q9@host-fixture.mock.internal:5432/db_fake7q"}
+
+event: message_stop
+data: {"type":"message_stop"}
+

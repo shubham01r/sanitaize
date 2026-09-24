@@ -1,0 +1,32 @@
+{
+  "name": "sanitaize",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A client-side Chrome extension that replaces detected sensitive values with format-valid stand-ins before prompts reach supported AI chat sites.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "node esbuild.config.mjs --dev",
+    "build": "node esbuild.config.mjs",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "pretest:e2e": "npm run dev",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "verify:no-network": "node scripts/verify-no-network.mjs",
+    "zip": "node scripts/zip.mjs",
+    "fixtures:chatgpt": "node scripts/generate-chatgpt-fixtures.mjs",
+    "fixtures:corpus": "node scripts/generate-detection-corpus.mjs",
+    "bench:detect": "node scripts/detect-report.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "eslint": "^9.22.0",
+    "playwright": "^1.51.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.8"
+  }
+}

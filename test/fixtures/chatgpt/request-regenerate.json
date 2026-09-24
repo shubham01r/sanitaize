@@ -1,0 +1,22 @@
+{
+  "conversation_id": "CONVERSATION_ID_REDACTED",
+  "model": "gpt-4o",
+  "stream": true,
+  "parent_message_id": "MESSAGE_ID_ASSISTANT_REGENERATE",
+  "messages": [
+    {
+      "id": "MESSAGE_ID_USER_REGENERATE",
+      "author": { "role": "user" },
+      "create_time": 1710000000,
+      "update_time": null,
+      "content": {
+        "content_type": "text",
+        "parts": ["Regenerate the answer for Example Client Synthetic."]
+      },
+      "status": "completed",
+      "end_turn": null,
+      "weight": 1,
+      "metadata": {}
+    }
+  ]
+}

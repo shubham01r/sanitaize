@@ -1,0 +1,8 @@
+data: {"message":{"id":"MESSAGE_ID_ASSISTANT_CUMULATIVE_0","author":{"role":"assistant"},"content":{"content_type":"text","parts":["The synthetic key "]}}}
+
+data: {"message":{"id":"MESSAGE_ID_ASSISTANT_CUMULATIVE_1","author":{"role":"assistant"},"content":{"content_type":"text","parts":["The synthetic key sk_test_mockfixture7x9q2m4k6p8r"]}}}
+
+data: {"message":{"id":"MESSAGE_ID_ASSISTANT_CUMULATIVE_2","author":{"role":"assistant"},"content":{"content_type":"text","parts":["The synthetic key sk_test_mockfixture7x9q2m4k6p8r and the database stand-in postgres://user_fake7q:MockPass7Q9@host-fixture.mock.internal:5432/db_fake7q are format-valid."]}}}
+
+data: [DONE]
+

@@ -1,0 +1,24 @@
+{
+  "conversation_id": "CONVERSATION_ID_REDACTED",
+  "model": "gpt-4o",
+  "stream": true,
+  "parent_message_id": "PARENT_MESSAGE_ID_REDACTED",
+  "messages": [
+    {
+      "id": "MESSAGE_ID_USER_NORMAL",
+      "author": { "role": "user" },
+      "create_time": 1710000000,
+      "update_time": null,
+      "content": {
+        "content_type": "text",
+        "parts": [
+          "Debug the integration for Example Client Synthetic. Use the synthetic key sk_test_fakefixture7x9q2m4k6p8r and database URL postgres://fake_user:fake_password_7Q9@db.example.invalid:5432/fake_database. The synthetic contact is fake.user@synthetic.example; the documentation IP is 10.20.30.40."
+        ]
+      },
+      "status": "completed",
+      "end_turn": null,
+      "weight": 1,
+      "metadata": {}
+    }
+  ]
+}

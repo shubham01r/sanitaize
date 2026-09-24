@@ -1,0 +1,12 @@
+data: {"p":"/message/content/parts/0","o":"append","v":"The synthetic key "}
+
+data: {"p":"/message/content/parts/0","o":"append","v":"sk_test_"}
+
+data: {"p":"/message/content/parts/0","o":"append","v":"mockfixture7x9q2m4k6p8r"}
+
+data: {"p":"/message/content/parts/0","o":"append","v":" and the database stand-in postgres://user_fake7q:MockPass7Q9@host-fixture.mock.internal:5432/db_fake7q are format-valid."}
+
+data: {"p":"/message/id","o":"replace","v":"MESSAGE_ID_ASSISTANT_DELTA"}
+
+data: [DONE]
+

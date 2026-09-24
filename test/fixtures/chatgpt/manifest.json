@@ -1,0 +1,35 @@
+{
+  "site": "chatgpt",
+  "synthetic": true,
+  "request": {
+    "method": "POST",
+    "path": "/backend-api/conversation",
+    "contentType": "application/json",
+    "textSlots": ["messages[*].content.parts[*]"],
+    "files": {
+      "normal": "request.json",
+      "longMultiline": "request-long-multiline.json",
+      "codeBlock": "request-code-block.json",
+      "followUp": "request-follow-up.json",
+      "regenerate": "request-regenerate.json"
+    },
+    "redaction": {
+      "headersRemoved": ["cookie", "authorization", "csrf", "account-identifiers"],
+      "identifiersReplaced": ["conversation_id", "parent_message_id", "message_id", "user_id"],
+      "realCredentialsUsed": false
+    }
+  },
+  "response": {
+    "contentType": "text/event-stream",
+    "deltaFixture": "stream-delta.sse",
+    "cumulativeFixture": "stream-cumulative.sse",
+    "terminalEvent": "data: [DONE]"
+  },
+  "observations": {
+    "channel": "main-thread fetch",
+    "composerSelectors": ["#prompt-textarea", "[contenteditable=\"true\"]"],
+    "fetchWrapper": "standard page fetch",
+    "history": "multi-turn messages array",
+    "regenerate": "parent_message_id included"
+  }
+}

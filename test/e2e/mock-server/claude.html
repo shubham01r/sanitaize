@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>SanitAIze local Claude mock</title>
+  </head>
+  <body>
+    <main>
+      <h1>Local Claude mock</h1>
+      <textarea id="prompt-textarea" aria-label="Prompt"></textarea>
+      <button id="send-button" type="button">Send</button>
+      <pre id="reply" aria-live="polite"></pre>
+    </main>
+    <script type="module">
+      const composer = document.querySelector('#prompt-textarea');
+      const button = document.querySelector('#send-button');
+      const reply = document.querySelector('#reply');
+
+      function appendCompletion(text) {
+        try {
+          const event = JSON.parse(text);
+          if (typeof event.completion === 'string') reply.textContent += event.completion;
+        } catch {
+          // Malformed provider events are intentionally ignored by this test page.
+        }
+      }
+
+      async function send() {
+        reply.textContent = '';
+        const response = await fetch('/api/organizations/ORG_REDACTED/chat_conversations/CONVERSATION_REDACTED/completion', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({
+            conversation_id: 'CONVERSATION_ID_REDACTED',
+            prompt: composer.value,
+            files: [],
+            parent_message_uuid: 'MESSAGE_ID_REDACTED',
+          }),
+        });
+        const stream = await response.text();
+        for (const block of stream.split(/\n\n/)) {
+          const dataLine = block.split('\n').find((line) => line.startsWith('data: '));
+          if (dataLine) appendCompletion(dataLine.slice('data: '.length));
+        }
+      }
+
+      button.addEventListener('click', () => void send());
+    </script>
+  </body>
+</html>

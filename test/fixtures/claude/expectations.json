@@ -1,0 +1,6 @@
+{
+  "requestSlots": 2,
+  "terminalEvent": "message_stop",
+  "streamFields": ["completion"],
+  "syntheticValuesOnly": true
+}

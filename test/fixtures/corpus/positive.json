@@ -1,0 +1,138 @@
+[
+  {
+    "type": "STRIPE_KEY",
+    "text": "Synthetic Stripe credential sk_test_fakefixture7x9q2m4k6p8r"
+  },
+  {
+    "type": "STRIPE_KEY",
+    "text": "const stripe = \"sk_test_fakefixture7x9q2m4k6p8r\";"
+  },
+  {
+    "type": "STRIPE_KEY",
+    "text": "Refund path uses sk_test_fakefixture7x9q2m4k6p8r in this synthetic test."
+  },
+  {
+    "type": "AWS_ACCESS_KEY_ID",
+    "text": "AWS synthetic id AKIAFAKE2EXAMPLE7Q9Z"
+  },
+  {
+    "type": "AWS_ACCESS_KEY_ID",
+    "text": "const accessKeyId = \"AKIAFAKE2EXAMPLE7Q9Z\";"
+  },
+  {
+    "type": "AWS_ACCESS_KEY_ID",
+    "text": "Debug the synthetic AWS value AKIAFAKE2EXAMPLE7Q9Z."
+  },
+  {
+    "type": "AWS_SECRET_KEY",
+    "text": "aws_secret_key = \"FAKEsecretExample7Q9Z4pL2mN8rT4vX6cD8wY0\""
+  },
+  {
+    "type": "AWS_SECRET_KEY",
+    "text": "AWS_SECRET_ACCESS_KEY: FAKEsecretExample7Q9Z4pL2mN8rT4vX6cD8wY0"
+  },
+  {
+    "type": "GITHUB_TOKEN",
+    "text": "Synthetic GitHub token ghp_FakeGitHubToken0123456789abcdefXYZ12"
+  },
+  {
+    "type": "GITHUB_TOKEN",
+    "text": "const token = \"github_pat_FakeFineGrainedToken0123456789ABCDE\";"
+  },
+  {
+    "type": "GITHUB_TOKEN",
+    "text": "Use ghp_FakeGitHubToken0123456789abcdefXYZ12 for a local-only fixture."
+  },
+  {
+    "type": "OPENAI_KEY",
+    "text": "Synthetic OpenAI key sk-proj-FakeOpenAIProject0123456789ABCDE"
+  },
+  {
+    "type": "OPENAI_KEY",
+    "text": "const apiKey = \"sk-proj-FakeOpenAIProject0123456789ABCDE\";"
+  },
+  {
+    "type": "OPENAI_KEY",
+    "text": "The synthetic project key is sk-proj-FakeOpenAIProject0123456789ABCDE."
+  },
+  {
+    "type": "ANTHROPIC_KEY",
+    "text": "Synthetic Anthropic key sk-ant-api03-FakeAnthropicKey0123456789ABCDE"
+  },
+  {
+    "type": "ANTHROPIC_KEY",
+    "text": "const apiKey = \"sk-ant-api03-FakeAnthropicKey0123456789ABCDE\";"
+  },
+  {
+    "type": "ANTHROPIC_KEY",
+    "text": "Review sk-ant-api03-FakeAnthropicKey0123456789ABCDE in the fixture."
+  },
+  {
+    "type": "GOOGLE_API_KEY",
+    "text": "Synthetic Google key AIzaFakeGoogleKey0123456789ABCDEFGHIJKL"
+  },
+  {
+    "type": "GOOGLE_API_KEY",
+    "text": "const googleKey = \"AIzaFakeGoogleKey0123456789ABCDEFGHIJKL\";"
+  },
+  {
+    "type": "GOOGLE_API_KEY",
+    "text": "Use AIzaFakeGoogleKey0123456789ABCDEFGHIJKL in a local test."
+  },
+  {
+    "type": "SLACK_TOKEN",
+    "text": "Synthetic Slack token xoxb-FAKE-SLACK-TOKEN-0123456789"
+  },
+  {
+    "type": "SLACK_TOKEN",
+    "text": "const slackToken = \"xoxb-FAKE-SLACK-TOKEN-0123456789\";"
+  },
+  {
+    "type": "SLACK_TOKEN",
+    "text": "The fixture contains xoxb-FAKE-SLACK-TOKEN-0123456789 only."
+  },
+  {
+    "type": "JWT",
+    "text": "Synthetic JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmYWtlLXVzZXIiLCJyb2xlIjoiZmFrZSJ9.RkFLRVNJR05BVEVSRUdVVUkU"
+  },
+  {
+    "type": "JWT",
+    "text": "const jwt = \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmYWtlLXVzZXIiLCJyb2xlIjoiZmFrZSJ9.RkFLRVNJR05BVEVSRUdVVUkU\";"
+  },
+  {
+    "type": "JWT",
+    "text": "Validate the synthetic token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmYWtlLXVzZXIiLCJyb2xlIjoiZmFrZSJ9.RkFLRVNJR05BVEVSRUdVVUkU."
+  },
+  {
+    "type": "PEM_PRIVATE_KEY",
+    "text": "-----BEGIN PRIVATE KEY-----\nRkFLRVBFTElOVEVTVEVGVFVSRUZBS0U=\nRkFLRVNFQ1JFVFRFVSRUZBS0U=\n-----END PRIVATE KEY-----"
+  },
+  {
+    "type": "DB_URL",
+    "text": "Synthetic database postgres://fake_user:fake_password_7Q9@db.example.invalid:5432/fake_database"
+  },
+  {
+    "type": "DB_URL",
+    "text": "DATABASE_URL=postgres://fake_user:fake_password_7Q9@db.example.invalid:5432/fake_database"
+  },
+  {
+    "type": "EMAIL",
+    "text": "Synthetic contact fake.user@synthetic.example"
+  },
+  {
+    "type": "IPV4",
+    "text": "Synthetic private address 10.20.30.40"
+  },
+  {
+    "type": "INTERNAL_HOST",
+    "text": "Synthetic service host service.internal"
+  },
+  {
+    "type": "GENERIC_SECRET",
+    "text": "token = \"FAKE_SECRET_7Q9Z4P2L\""
+  },
+  {
+    "type": "GENERIC_SECRET",
+    "text": "password: FAKE_SECRET_7Q9Z4P2L"
+  }
+]

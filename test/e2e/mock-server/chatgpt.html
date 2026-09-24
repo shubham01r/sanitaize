@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>SanitAIze local ChatGPT mock</title>
+  </head>
+  <body>
+    <main>
+      <h1>Local ChatGPT mock</h1>
+      <textarea id="prompt-textarea" aria-label="Prompt"></textarea>
+      <button id="send-button" type="button">Send</button>
+      <pre id="reply" aria-live="polite"></pre>
+    </main>
+    <script type="module">
+      const composer = document.querySelector('#prompt-textarea');
+      const button = document.querySelector('#send-button');
+      const reply = document.querySelector('#reply');
+
+      function appendStream(body) {
+        for (const block of body.split(/\n\n/)) {
+          const dataLine = block.split('\n').find((line) => line.startsWith('data: '));
+          if (!dataLine) continue;
+          const data = dataLine.slice('data: '.length);
+          if (data === '[DONE]') continue;
+          try {
+            const event = JSON.parse(data);
+            if (typeof event.v === 'string') reply.textContent += event.v;
+          } catch {
+            // The test page treats malformed provider data as an empty delta.
+          }
+        }
+      }
+
+      async function send() {
+        const text = composer.value;
+        reply.textContent = '';
+        const renamed = new URLSearchParams(location.search).has('renamed');
+        const streamMode = new URLSearchParams(location.search).get('streamMode');
+        const baseBody = renamed
+          ? {
+              conversation: { items: [{ id: 'MESSAGE_ID_RENAMED', text }] },
+              stream: true,
+            }
+          : {
+              conversation_id: 'LOCAL_CONVERSATION_ID',
+              model: 'local-mock',
+              stream: true,
+              messages: [
+                {
+                  id: 'LOCAL_USER_MESSAGE_ID',
+                  author: { role: 'user' },
+                  content: { content_type: 'text', parts: [text] },
+                },
+              ],
+            };
+        const body = { ...baseBody, ...(streamMode ? { stream_mode: streamMode } : {}) };
+        const response = await fetch('/backend-api/conversation', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify(body),
+        });
+        appendStream(await response.text());
+      }
+
+      button.addEventListener('click', () => {
+        void send();
+      });
+    </script>
+  </body>
+</html>

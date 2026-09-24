@@ -1,0 +1,29 @@
+{
+  "adapter": "chatgpt",
+  "synthetic": true,
+  "source": "test/helpers/fake-secrets.js",
+  "realValuesIncluded": false,
+  "fixtures": {
+    "request": "request.json",
+    "longMultiline": "request-long-multiline.json",
+    "codeBlock": "request-code-block.json",
+    "followUp": "request-follow-up.json",
+    "regenerate": "request-regenerate.json",
+    "streamDelta": "stream-delta.sse",
+    "streamCumulative": "stream-cumulative.sse",
+    "renamedFields": "renamed-fields.json"
+  },
+  "requestExpectations": {
+    "method": "POST",
+    "path": "/backend-api/conversation",
+    "contentType": "application/json",
+    "expectedSlotPaths": ["messages[*].content.parts[*]"],
+    "containsParentMessageIdInRegenerate": true
+  },
+  "streamExpectations": {
+    "contentType": "text/event-stream",
+    "terminalEvent": "[DONE]",
+    "deltaFixtureUsesPathAppend": true,
+    "cumulativeFixtureUsesMessageSnapshots": true
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "conversation_id": "CONVERSATION_ID_REDACTED",
+  "model": "gpt-4o",
+  "stream": true,
+  "parent_message_id": "PARENT_MESSAGE_ID_REDACTED",
+  "messages": [
+    {
+      "id": "MESSAGE_ID_USER_CODE",
+      "author": { "role": "user" },
+      "create_time": 1710000000,
+      "update_time": null,
+      "content": {
+        "content_type": "text",
+        "parts": [
+          "Here is a synthetic code sample:\n```javascript\nconst stripeKey = 'sk_test_fakefixture7x9q2m4k6p8r';\nconst databaseUrl = 'postgres://fake_user:fake_password_7Q9@db.example.invalid:5432/fake_database';\n```"
+        ]
+      },
+      "status": "completed",
+      "end_turn": null,
+      "weight": 1,
+      "metadata": {}
+    }
+  ]
+}
