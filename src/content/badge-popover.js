@@ -80,7 +80,7 @@ export function createBadgePopover(options) {
   return {
     element: panel,
     open(detections, items, anchor) {
-      lastFocus = root.ownerDocument?.activeElement ?? null;
+      lastFocus = anchor ?? root.ownerDocument?.activeElement ?? null;
       render(detections, items);
       place(anchor);
       panel.hidden = false;

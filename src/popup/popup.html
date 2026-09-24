@@ -2,12 +2,72 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>SanitAIze</title>
+    <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
-    <main>
-      <h1>SanitAIze</h1>
-      <p data-role="status">Loading…</p>
+    <main class="popup-shell">
+      <header class="popup-header">
+        <div class="brand-mark" aria-hidden="true">S</div>
+        <div class="brand-copy">
+          <h1>SanitAIze</h1>
+          <p>Private AI prompts</p>
+        </div>
+        <label class="switch" aria-label="Enable SanitAIze for this site">
+          <input data-role="toggle" type="checkbox" checked />
+          <span aria-hidden="true"></span>
+        </label>
+      </header>
+
+      <section class="site-card" aria-labelledby="site-heading">
+        <div>
+          <p id="site-heading" class="eyebrow">Current site</p>
+          <h2 data-role="site">Loading…</h2>
+        </div>
+        <span class="state-pill" data-role="state">Loading</span>
+      </section>
+
+      <p class="status-copy" data-role="status" aria-live="polite">Checking this tab…</p>
+
+      <section class="panel" aria-labelledby="this-tab-heading">
+        <h2 id="this-tab-heading">This tab</h2>
+        <div class="metric-row">
+          <div>
+            <strong class="metric" data-role="replaced">0</strong>
+            <span>values replaced</span>
+          </div>
+          <div class="standin-count">
+            <span data-role="vault-size">0 entries · memory only</span>
+            <button class="text-button" data-role="clear" type="button">Clear stand-in list</button>
+          </div>
+        </div>
+        <div class="breakdown" data-role="breakdown" aria-label="Replacement counts by type"></div>
+      </section>
+
+      <section class="panel compact" aria-labelledby="last-heading">
+        <h2 id="last-heading">Last message</h2>
+        <p data-role="last-message">No messages protected yet</p>
+      </section>
+
+      <details class="verify" data-role="verify">
+        <summary>How to verify in Chrome DevTools</summary>
+        <ol>
+          <li>Open DevTools and select Network.</li>
+          <li>Send a prompt containing fake test values.</li>
+          <li>Open the conversation or completion request.</li>
+          <li>Inspect Payload and confirm only stand-ins are present.</li>
+          <li>Confirm your typed values still appear in the rendered reply.</li>
+        </ol>
+      </details>
+
+      <footer class="popup-actions">
+        <button data-role="options" type="button">Settings</button>
+        <button data-role="dictionary" type="button">Dictionary</button>
+        <button data-role="pause" type="button">Pause tab</button>
+      </footer>
+
+      <p class="privacy-note">Runs locally. No prompt content is stored.</p>
     </main>
     <script src="popup.js" defer></script>
   </body>

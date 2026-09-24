@@ -115,7 +115,7 @@ export function startContent({ windowObject, documentObject, runtimeApi }) {
       }
       if (config.enabled === false) badge.setState('off');
       else if (config.paused) badge.setState('paused');
-      else if (lastState !== 'blocked' && lastState !== 'protected') badge.setState(detections.length ? 'detected' : 'ready');
+      else badge.setState(detections.length ? 'detected' : 'ready');
     },
   });
 

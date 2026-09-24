@@ -72,7 +72,7 @@ export function startMainWorld({ windowObject, documentObject }) {
     cryptoObject,
     onConfig: applyConfig,
     onWarning: (type, payload) => runtime.report(type, payload),
-    onIgnore: ({ valueHash }) => {
+    onIgnore: ({ type, valueHash }) => {
       if (!effectiveConfig) return;
       const ignoreHashes = new Set(effectiveConfig.ignoreHashes ?? []);
       ignoreHashes.add(valueHash);

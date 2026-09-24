@@ -15,8 +15,6 @@
   const status = document.querySelector('[data-role="status"]');
   const toggle = document.querySelector('[data-role="toggle"]');
   const breakdown = document.querySelector('[data-role="breakdown"]');
-  const vaultSize = document.querySelector('[data-role="vault-size"]');
-  const lastMessage = document.querySelector('[data-role="last-message"]');
   const clearButton = document.querySelector('[data-role="clear"]');
   const pauseButton = document.querySelector('[data-role="pause"]');
   const verify = document.querySelector('[data-role="verify"]');
@@ -91,11 +89,19 @@
     render();
   };
 
+  let confirmingClear = false;
   clearButton?.addEventListener('click', () => {
+    if (!confirmingClear) {
+      confirmingClear = true;
+      if (clearButton instanceof HTMLButtonElement) clearButton.textContent = 'Clear anyway?';
+      return;
+    }
+    confirmingClear = false;
     void sendToTab({ type: 'CLEAR_VAULT' }).then(() => {
       state.stats = { replaced: 0, byType: {} };
       state.vaultSize = 0;
       state.last = null;
+      if (clearButton instanceof HTMLButtonElement) clearButton.textContent = 'Clear stand-in list';
       render();
     });
   });
@@ -115,10 +121,11 @@
   verify?.addEventListener('click', () => {
     if (verify instanceof HTMLDetailsElement) verify.open = true;
   });
-  document.querySelector('[data-role="options"]')?.addEventListener('click', () => messaging.openOptionsPage());
+  document.querySelectorAll('[data-role="options"], [data-role="dictionary"]').forEach((button) => {
+    button.addEventListener('click', () => messaging.openOptionsPage());
+  });
 
   void load();
 
 export {};
 
-  export {};

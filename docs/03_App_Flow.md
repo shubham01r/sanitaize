@@ -119,7 +119,7 @@ sequenceDiagram
 8. Non-streaming JSON response → same replacement on all string leaves.
 
 ### F6 — Multi-turn consistency
-- Turn 1 prompt contains `sk_live_AAA…` → mock `M1` stored (`fwd`: real→M1, `rev`: M1→real).
+- Turn 1 prompt contains `sk_live_MOCK_SECRET_REDACTED…` → mock `M1` stored (`fwd`: real→M1, `rev`: M1→real).
 - Turn 2 the user pastes the same key again (or the reply contained the real key because it was re-hydrated and the user quoted it) → `getOrCreate` returns `M1`. The provider's server-side history already holds `M1`, so the model sees a consistent identifier.
 - New chat in the same tab → same vault (same mapping), which keeps behaviour predictable.
 
@@ -260,7 +260,7 @@ stateDiagram-v2
 **User types in ChatGPT:**
 ```
 Debug my Stripe integration for Acme Capital:
-const STRIPE_KEY = "sk_live_9982348123456789abcdef01";
+const STRIPE_KEY = "sk_live_MOCK_SECRET_REDACTED_KEY";
 db: postgres://payments_svc:Pa55w0rd!x@10.20.30.40:5432/acme_prod
 ```
 Badge: **3 sensitive values will be replaced** — API key, Client/dictionary term, Database URL (+ IP inside the URL is handled by the URL generator).
@@ -277,7 +277,7 @@ db: postgres://user_q7m2ab:Xk3nd8Tp!v@10.77.2.19:5432/db_c4f1
 "Your Stripe integration for Entity_A_x9k looks correct. The key sk_test_mock8f9a2b1c3d4e5f67890 is properly formatted…"
 
 **User sees in the UI:**
-"Your Stripe integration for Acme Capital looks correct. The key sk_live_9982348123456789abcdef01 is properly formatted…"
+"Your Stripe integration for Acme Capital looks correct. The key sk_live_MOCK_SECRET_REDACTED_KEY is properly formatted…"
 
 **Verify (also shown in the popup):**
 1. Open DevTools (F12) → Network tab. 2. Send the prompt. 3. Click the request named `conversation` (ChatGPT) or `completion` (Claude) → Payload/Request. 4. Confirm only mocks are present. 5. Compare with what the page shows.
