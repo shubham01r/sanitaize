@@ -1,5 +1,4 @@
-
-﻿# SanitAIze
+# SanitAIze
 > Context-Preserving, Zero-Trust In-Browser Privacy Layer for Generative AI
 
 SanitAIze is a Manifest V3 Chrome Extension engineered to tackle the Enterprise Shadow AI Crisis. When developers paste sensitive code, API keys, database credentials, or client names into public LLMs (e.g., ChatGPT, Claude), SanitAIze intercepts the outbound payload in local client RAM, replaces raw secrets with format-valid synthetic mocks, and seamlessly re-hydrates the original values in real time as the response streams back.
